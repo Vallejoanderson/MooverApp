@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import messenger from '../images/messenger.jpg'
 
 export const Home = () => {
@@ -12,10 +13,12 @@ export const Home = () => {
 								<p className="mt-4">
 											Haz que tus pedidos lleguen <br />
 											a cualquier parte y mucho <br />
-											mas rapido con nosotros. <br />
+											más rapido con nosotros. <br />
 								</p>
 								<button className="bg-indigo-500 hover:bg-indigo-700 rounded-full py-4 px-8 mb-8 text-white tracking-wider font-bold mt-8">
-									Pedir un Moover
+									<Link to="/order" >
+										Pedir un Moover
+									</Link>
 								</button>
 							</div>
 							<div>
