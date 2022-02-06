@@ -1,42 +1,25 @@
 
 import React, { useContext, useEffect } from 'react';
-import { useForm } from './hooks/useForm';
 import { OrdersData } from './OrdersData';
 
 export const Form = ( { setCreated, setOrder } ) => {
 
-	const [ formValues, handleInputChange, reset ] = useForm({    
-		originname: '',
-		originaddress: '',
-		origindistrit: '',
-		originphone: '',
-		destinationname: '',
-		destinationaddress: '',
-		destinationdistrit: '',
-		destinationphone: '',
-		status: 'En proceso',
-});
+	const { formValues, handleInputChange, reset, setLastOrder } = useContext( OrdersData )
 
 	const { originname, originaddress, origindistrit, 
 					originphone, destinationname, destinationaddress, 
 					destinationdistrit, destinationphone  } = formValues;
 
-	const { orders, setOrders } = useContext( OrdersData );			
-
-	useEffect(() => {
-
-		localStorage.setItem( 'orders', JSON.stringify( { orders } ) );
-		console.log( orders );
-		reset();
-
-	}, [ orders ]);
+	const { setOrders } = useContext( OrdersData );
 
 	const handleSubmit = ( e ) => {
 
-		e.preventDefault();	
-		setOrders( orders => ( { ...orders, formValues } ));
+		e.preventDefault();
+		setLastOrder( formValues.ordercode );
+		setOrders( orders => [ ...orders, formValues ] );
 		setCreated( true );
 		setOrder( false );
+		
 	}
 
 
@@ -57,7 +40,7 @@ export const Form = ( { setCreated, setOrder } ) => {
 												autoComplete = "off"
 												value = { originname }
 												onChange = { handleInputChange }
-												required=""
+												required
 									/>
 									{/* <p className="text-red-500 text-xs italic">Por favor, llena este campo</p> */}
 								</div>

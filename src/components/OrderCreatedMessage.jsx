@@ -2,10 +2,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export const OrderCreatedMessage = ( { setCreated } ) => {
+export const OrderCreatedMessage = ( { setCreated , id } ) => {
 	return <div className="animate__animated animate__bounceInLeft">
 						<h2 className="text-gray-600">
-								Se ha creado tu pedido< br/>
+								Se ha creado tu pedido { id }< br/>
 								Si necesitas crear otro pedido, adelante.
 						</h2>
 						<Link to='/order'>

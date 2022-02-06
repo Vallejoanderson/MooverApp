@@ -7,18 +7,39 @@ import { Order } from "./components/Order";
 import { Tracking } from "./components/Tracking";
 import { OrdersData } from "./components/OrdersData.js";
 import { useState } from "react";
+import { useForm } from './components/hooks/useForm';
 import './index.css'
 
 
 const App = () => {
 
-  const [ orders, setOrders ] = useState({});
+  const [ orders, setOrders ] = useState( JSON.parse( localStorage.getItem('orders') ));
+
+  const [ formValues, handleInputChange, reset ] = useForm({
+    ordercode: crypto.randomUUID().slice(0, 6),
+		originname: '',
+		originaddress: '',
+		origindistrit: '',
+		originphone: '',
+		destinationname: '',
+		destinationaddress: '',
+		destinationdistrit: '',
+		destinationphone: '',
+		status: 'En proceso',
+	});
+
+  const [ lastOrder, setLastOrder ] = useState()
 
   return (
     <OrdersData.Provider
       value = {{
                 orders,
-                setOrders
+                setOrders,
+                formValues,
+                handleInputChange,
+                reset,
+                lastOrder,
+                setLastOrder
               }}
     >
       <BrowserRouter>

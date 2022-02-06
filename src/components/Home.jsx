@@ -31,17 +31,17 @@ export const Home = () => {
 									Contactanos
 								</div>
 								<div>
-									<i class="fas fa-phone fa-2x mb-2"></i>
+									<i className="fas fa-phone fa-2x mb-2"></i>
 									<div>Whatsapp/Llamada</div>
 									<div>+51 999 999 999</div>
 								</div>
 								<div>
-									<i class="far fa-envelope fa-2x"></i>
+									<i className="far fa-envelope fa-2x"></i>
 									<div>Atencion comercial</div>
 									<div>atencion@comercial.com</div>
 								</div>
 								<div>
-									<i class="far fa-clock fa-2x"></i>
+									<i className="far fa-clock fa-2x"></i>
 									<div>Horario</div>
 									<div>L-S - 8:00 - 20:00</div>
 								</div>
