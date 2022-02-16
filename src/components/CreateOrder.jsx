@@ -7,7 +7,7 @@ export const CreateOrder = ( { setOrder } ) => {
 						<h2 className="text-gray-600">
 								Estamos aqui para ayudarte < br/>
 						</h2>
-						<button onClick={ () => setOrder( true ) }className="bg-indigo-500 hover:bg-indigo-700 rounded-full py-4 px-8 mb-8 text-white tracking-wider font-bold mt-8">
+						<button onClick={ () => setOrder( true ) } className="bg-indigo-500 hover:bg-indigo-700 rounded-full py-4 px-8 mb-8 text-white tracking-wider font-bold mt-8">
 							Crear pedido   <span className="text-lg">+</span>
 						</button>
 					</div>

@@ -8,40 +8,49 @@ export const OrderFound = ( { found } ) => {
 	if(!found) return <p className="text-center text-sm text-red-500">No se ha encontrado tu orden.</p>
 	
 	return (
-						<div className="animate__animated animate__bounceInLeft text-indigo-300 rounded-lg mt-8 py-2 px-4 text-center sm:w-full md:w-1/2 mx-auto">
-							<div>
-								<div className="inline-block bg-yellow-500 text-white rounded-lg px-2 text-lg mb-4">Origen</div>
-								<div>
-									<div className="mb-4">
-										<div className="inline-block bg-gray-400 text-white rounded-lg px-2 mr-2 text-lg">Nombre: </div>
-										<div className="inline-block bg-indigo-500 text-white rounded-lg px-2 text-lg">{ found.originname }</div>
-									</div>
-									<div className="mb-4">
-										<div className="inline-block bg-gray-400 text-white rounded-lg px-2 mr-2 text-lg">Direccion: </div>
-										<div className="inline-block bg-indigo-500 text-white rounded-lg px-2 text-lg">{ found.originaddress }</div>
-									</div>
-									<div className="mb-4">
-										<div className="inline-block bg-gray-400 text-white rounded-lg px-2 mr-2 text-lg">Nombre: </div>
-										<div className="inline-block bg-indigo-500 text-white rounded-lg px-2 text-lg">{ found.origindistrit }</div>	
-									</div>
-								</div>
-							</div>
-							<div className="inline-block bg-green-600 text-white rounded-lg px-2 text-lg mb-4">Destino</div>
-							<div>
-								<div className="mb-4">
-									<div className="inline-block bg-gray-400 text-white rounded-lg px-2 mr-2 text-lg">Nombre: </div>
-									<div className="inline-block bg-indigo-500 text-white rounded-lg px-2 text-lg">{ found.destinationname }</div>
-								</div>
-								<div className="mb-4">
-									<div className="inline-block bg-gray-400 text-white rounded-lg px-2 mr-2 text-lg">Direccion: </div>
-									<div className="inline-block bg-indigo-500 text-white rounded-lg px-2 text-lg">{ found.destinationaddress }</div>
-								</div>
-								<div className="mb-4">
-									<div className="inline-block bg-gray-400 text-white rounded-lg px-2 mr-2 text-lg">Distrito: </div>
-									<div className="inline-block bg-indigo-500 text-white rounded-lg px-2 text-lg">{ found.destinationdistrit }</div>
-								</div>
-							</div>
-							<div className="inline-block bg-yellow-500 text-center text-white rounded-lg px-2 text-lg">Estado: { found.status} </div>	
-						</div>
+					<div className="flex justify-center mt-20 animate__animated animate__slideInDown">
+						<table className="table text-center border-2 border-indigo-500">
+							<thead>
+								<th colspan="2" className="px-2 bg-gray-300">Origen</th>
+							</thead>
+							<tbody>
+								<tr>
+									<td className="px-2 text-left">Nombre: </td>
+									<td className="px-2 text-right">{found.originname}</td>
+								</tr>
+								<tr>
+									<td className="px-2 text-left">Direccion: </td>
+									<td className="px-2 text-right">{found.originaddress}</td>
+								</tr>
+								<tr>
+									<td className="px-2 text-left">Distrito: </td>
+									<td className="px-2 text-right">{found.origindistrit}</td>
+								</tr>
+								<br />
+								<tr>
+									<td colspan="2" className="text-center font-bold bg-gray-300">Destino</td>
+								</tr>
+								<tr>
+									<td className="px-2 text-left">Nombre: </td>
+									<td className="px-2 text-right">{found.destinationname}</td>
+								</tr>
+								<tr>
+									<td className="px-2 text-left">Direccion: </td>
+									<td className="px-2 text-right">{found.destinationaddress}</td>
+								</tr>
+								<tr>
+									<td className="px-2 text-left">Distrito: </td>
+									<td className="px-2 text-right">{found.destinationdistrit}</td>
+								</tr>
+								<br />
+								<tr>
+									<td colspan="2" className="text-center font-bold bg-gray-300">Estado</td>
+								</tr>
+								<tr>
+									<td colspan="2" className="text-center font-bold bg-green-300">{found.status}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 				 );
 };

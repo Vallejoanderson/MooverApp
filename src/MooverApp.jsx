@@ -13,7 +13,7 @@ import './index.css'
 
 const App = () => {
 
-  const [ orders, setOrders ] = useState( JSON.parse( localStorage.getItem('orders') ));
+  const [ orders, setOrders ] = useState( JSON.parse( localStorage.getItem('orders') ) || [] );
 
   const [ formValues, handleInputChange, reset ] = useForm({
     ordercode: crypto.randomUUID().slice(0, 6),

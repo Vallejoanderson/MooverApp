@@ -1,5 +1,5 @@
 
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { OrdersData } from './OrdersData';
 
 export const Form = ( { setCreated, setOrder } ) => {
@@ -22,7 +22,6 @@ export const Form = ( { setCreated, setOrder } ) => {
 		
 	}
 
-
 	return 	(
 				<>
 						<form onSubmit={ handleSubmit } className="animate__animated animate__bounceInLeft">
@@ -42,7 +41,6 @@ export const Form = ( { setCreated, setOrder } ) => {
 												onChange = { handleInputChange }
 												required
 									/>
-									{/* <p className="text-red-500 text-xs italic">Por favor, llena este campo</p> */}
 								</div>
 								<div className="w-full md:w-1/2 px-3">
 									<label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">

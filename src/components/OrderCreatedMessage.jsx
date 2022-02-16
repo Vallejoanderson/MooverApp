@@ -9,7 +9,7 @@ export const OrderCreatedMessage = ( { setCreated , id } ) => {
 								Si necesitas crear otro pedido, adelante.
 						</h2>
 						<Link to='/order'>
-							<button onClick = { () => { setCreated( false ); } } className="bg-indigo-500 hover:bg-indigo-700 rounded-full py-4 px-8 mb-8 text-white tracking-wider font-bold mt-8">
+							<button onClick = { () => { setCreated( false ) } } className="bg-indigo-500 hover:bg-indigo-700 rounded-full py-4 px-8 mb-8 text-white tracking-wider font-bold mt-8">
 								Continuar
 							</button>
 						</Link>
