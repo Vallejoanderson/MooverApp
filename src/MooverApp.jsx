@@ -6,14 +6,18 @@ import { NavBar } from "./components/NavBar";
 import { Order } from "./components/Order";
 import { Tracking } from "./components/Tracking";
 import { OrdersData } from "./components/OrdersData.js";
-import { useState } from "react";
+import { useReducer, useState } from "react";
 import { useForm } from './components/hooks/useForm';
 import './index.css'
+import { ordersReducer } from "./components/ordersReducer";
 
+const init = () => {
+  return JSON.parse( localStorage.getItem('orders') ) || [];
+}
 
 const App = () => {
 
-  const [ orders, setOrders ] = useState( JSON.parse( localStorage.getItem('orders') ) || [] );
+  const [ orders, dispatch ] = useReducer( ordersReducer, [], init);
 
   const [ formValues, handleInputChange, reset ] = useForm({
     ordercode: crypto.randomUUID().slice(0, 6),
@@ -34,7 +38,7 @@ const App = () => {
     <OrdersData.Provider
       value = {{
                 orders,
-                setOrders,
+                dispatch,
                 formValues,
                 handleInputChange,
                 reset,
