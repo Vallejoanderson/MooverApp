@@ -1,6 +1,7 @@
 
 import React, { useContext } from 'react';
 import { OrdersData } from './OrdersData';
+import { types } from './types/types';
 
 export const Form = ( { setCreated, setOrder } ) => {
 
@@ -10,16 +11,18 @@ export const Form = ( { setCreated, setOrder } ) => {
 					originphone, destinationname, destinationaddress, 
 					destinationdistrit, destinationphone  } = formValues;
 
-	const { setOrders } = useContext( OrdersData );
+	const { dispatch } = useContext( OrdersData );
 
 	const handleSubmit = ( e ) => {
 
 		e.preventDefault();
 		setLastOrder( formValues.ordercode );
-		setOrders( orders => [ ...orders, formValues ] );
+		dispatch( {
+			type: types.add,
+			payload: formValues,
+		})
 		setCreated( true );
 		setOrder( false );
-		
 	}
 
 	return 	(
