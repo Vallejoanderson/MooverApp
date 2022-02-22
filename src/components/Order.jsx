@@ -9,10 +9,9 @@ export const Order = () => {
 
 	const [ order, setOrder ] = useState( false );
 	const [ created, setCreated ] = useState( false );
-	const { orders, formValues, reset, lastOrder } = useContext( OrdersData );
+	const { orders, reset, lastOrder } = useContext( OrdersData );
 
 	useEffect(() => {
-
 		localStorage.setItem( 'orders', JSON.stringify( orders ) );
 		reset();
 
