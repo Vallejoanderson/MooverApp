@@ -10,6 +10,7 @@ import { useReducer, useState } from "react";
 import { useForm } from './components/hooks/useForm';
 import './index.css'
 import { ordersReducer } from "./components/ordersReducer";
+import { Admin } from "./components/Admin";
 
 const init = () => {
   return JSON.parse( localStorage.getItem('orders') ) || [];
@@ -53,6 +54,7 @@ const App = () => {
           <Route path='/order' element = { <Order/> } />
           <Route path='/tracking' element = { <Tracking/> } />
           <Route path='/contact' element = { <Contact/> } /> 
+          <Route path='/admin' element = { <Admin /> } />
         </Routes>
       </BrowserRouter>
     </OrdersData.Provider>
