@@ -6,7 +6,7 @@ import { NavBar } from "./components/NavBar";
 import { Order } from "./components/Order";
 import { Tracking } from "./components/Tracking";
 import { OrdersData } from "./components/OrdersData.js";
-import { useReducer, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 import { useForm } from './components/hooks/useForm';
 import './index.css'
 import { ordersReducer } from "./components/ordersReducer";
@@ -34,6 +34,11 @@ const App = () => {
 	});
 
   const [ lastOrder, setLastOrder ] = useState()
+
+  useEffect( () => {
+    localStorage.setItem( 'orders', JSON.stringify( orders ) );
+    console.log('Orders have changed');
+  }, [orders]);
 
   return (
     <OrdersData.Provider

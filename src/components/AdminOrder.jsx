@@ -1,11 +1,19 @@
 
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { OrdersData } from './OrdersData';
+import { types } from './types/types';
 
 export const AdminOrder = ({ ordercode, origindistrit, destinationdistrit, status}) => {
 	const [ statusOption, SetStatusOption ] = useState( status );
-
+	const { dispatch } = useContext( OrdersData );
+	
 	const handleChange = ({target}) => {
 		SetStatusOption(target.value);
+		const obj = {
+			ordercode: ordercode,
+			status: target.value,
+		}
+		dispatch({type: types.editSt, payload: obj});
 	}
 
 	return (

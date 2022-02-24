@@ -12,9 +12,7 @@ export const Order = () => {
 	const { orders, reset, lastOrder } = useContext( OrdersData );
 
 	useEffect(() => {
-		localStorage.setItem( 'orders', JSON.stringify( orders ) );
 		reset();
-
 	}, [ orders ] );
 	
 	return( <div className="w-full max-w-lg px-8 mx-auto mt-8">
